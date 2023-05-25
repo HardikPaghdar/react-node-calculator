@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var express_1 = require("express");
+var express_joi_validation_1 = require("express-joi-validation");
+var MathController_1 = require("../controller/MathController");
+var MathSchema_1 = require("../schema/MathSchema");
+var validator = express_joi_validation_1.createValidator();
+var routes = express_1.Router();
+routes.use("/addition", validator.body(MathSchema_1.default.additionSchema), MathController_1.default.addition);
+exports.default = routes;
